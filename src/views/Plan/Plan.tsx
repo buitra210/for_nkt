@@ -1,8 +1,9 @@
-import { Box, Slider, Typography } from "@mui/material";
+import { Box, Button, Slider, Typography } from "@mui/material";
 import React, { useState } from "react";
 import VideoHome from "src/layout/video/video-bg";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme({
   typography: {
@@ -17,7 +18,11 @@ const timeMarks = [
   { value: 0, label: "00:30", text: "Dunno" },
 ];
 export default function Plan() {
-  const [value, setValue] = useState(100);
+  const [value, setValue] = useState(0);
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/end");
+  };
   const handleChange = (event: Event, newValue: number | number[]) => {
     if (typeof newValue === "number") {
       setValue(newValue);
@@ -39,10 +44,10 @@ export default function Plan() {
           }}
         >
           <Typography variant="h4" sx={{ color: "#cc0066", mt: "20px" }}>
-            ssssss
+            Our Plan
           </Typography>
-          <Typography variant="h4" sx={{ color: "#cc0066", mt: "20px" }}>
-            aaaaaaaaaaaaaaaaaaaaaaaaa
+          <Typography variant="h6" sx={{ color: "#cc0066", mt: "20px" }}>
+            If you have any suggestions, please feel free to contact me kkkk
           </Typography>
           <Box
             sx={{
@@ -55,7 +60,7 @@ export default function Plan() {
             <Slider
               orientation="vertical"
               onChange={handleChange}
-              defaultValue={50}
+              defaultValue={0}
               aria-labelledby="vertical-slider"
               step={null}
               marks={timeMarks}
@@ -96,7 +101,23 @@ export default function Plan() {
             </Box>
           </Box>
         </Box>
-        <Box></Box>
+
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+            mt: "100px",
+            mr: "200px",
+          }}
+        >
+          {" "}
+          <Button
+            sx={{ backgroundColor: "#cc0066", color: "#fff" }}
+            onClick={handleClick}
+          >
+            OK
+          </Button>
+        </Box>
       </ThemeProvider>
     </Box>
   );
