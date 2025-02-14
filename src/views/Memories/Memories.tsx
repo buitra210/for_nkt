@@ -3,13 +3,18 @@ import VideoHome from "src/layout/video/video-bg";
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { Fireworks } from "fireworks-js";
+import { useNavigate } from "react-router-dom";
 
 export default function Memories() {
   const [count, setCount] = useState(1);
   const [showFireworks, setShowFireworks] = useState(false);
   const [showImage, setShowImage] = useState(false);
-  const fireworksRefs = useRef([]);
+  const fireworksRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate("/plan");
+  };
   useEffect(() => {
     const interval = setInterval(() => {
       setCount((prev) => (prev < 97 ? prev + 1 : 97));
@@ -18,12 +23,10 @@ export default function Memories() {
     return () => clearInterval(interval);
   }, []);
 
-  // Khi count đạt 97 -> Kích hoạt pháo hoa ngay lập tức
   useEffect(() => {
     if (count === 97) {
       setShowFireworks(true);
 
-      // Tạo nhiều vị trí pháo hoa ngẫu nhiên
       const positions = [
         { left: "10%", top: "20%" },
         { left: "30%", top: "50%" },
@@ -45,10 +48,9 @@ export default function Memories() {
             });
             fw.start();
 
-            // Dừng sau 5 giây
             setTimeout(() => fw.stop(), 10000);
           }
-        }, index * 250); // Delay giữa các lần nổ
+        }, index * 250);
       });
 
       setTimeout(() => {
@@ -60,13 +62,14 @@ export default function Memories() {
 
   return (
     <Box>
-      {/* Vùng pháo hoa */}
       {showFireworks && (
         <>
           {Array.from({ length: 4 }).map((_, i) => (
             <Box
               key={i}
-              ref={(el) => (fireworksRefs.current[i] = el)}
+              ref={(el: HTMLDivElement | null) =>
+                (fireworksRefs.current[i] = el)
+              }
               style={{
                 position: "absolute",
                 width: "200px",
@@ -163,7 +166,10 @@ export default function Memories() {
                       gap: "20px",
                     }}
                   >
-                    <Button sx={{ backgroundColor: "#cc0066", color: "#fff" }}>
+                    <Button
+                      sx={{ backgroundColor: "#cc0066", color: "#fff" }}
+                      onClick={handleClick}
+                    >
                       Of courseee
                     </Button>
                   </Box>

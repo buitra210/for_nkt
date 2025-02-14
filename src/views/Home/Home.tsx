@@ -35,7 +35,6 @@ export default function Home() {
         >
           <Box
             sx={{
-              zIndex: -1,
               height: "100vh",
               width: "100vh",
               position: "absolute",
@@ -57,6 +56,8 @@ export default function Home() {
               {" "}
               <Box
                 sx={{
+                  zIndex: -1,
+
                   position: "absolute",
                   width: "282px",
                   height: "282px",
@@ -67,6 +68,74 @@ export default function Home() {
                   borderRadius: "20px 0px 0px 0px",
                 }}
               ></Box>
+              <Box>
+                <Box
+                  sx={{
+                    zIndex: 4,
+                    height: "100vh",
+                    width: "100vh",
+                    position: "absolute",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      borderRight: "180px solid #ffcccc",
+                      borderBottom: "110px solid transparent",
+                      borderTop: "100px solid transparent",
+                      left: "-60px",
+                      top: "-140px",
+                      width: "80px",
+                      height: "80px",
+                    }}
+                  ></Box>
+                </Box>
+                <Box
+                  sx={{
+                    zIndex: 5,
+                    height: "100vh",
+                    width: "100vh",
+                    position: "absolute",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      borderLeft: "400px solid #ffb3b3",
+                      borderTop: "195px solid transparent",
+                      left: "-200px",
+                      top: "-150px",
+                      width: "200px",
+                      height: "105px",
+                    }}
+                  ></Box>
+                </Box>
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: "20%",
+                    left: "180px",
+                    zIndex: 7,
+                    borderRadius: "50%",
+                    height: "90px",
+                    width: "90px",
+                    backgroundColor: "#ffe6e6",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    cursor: "pointer",
+                    transition: "transform 0.3s",
+                    "&:hover": {
+                      transform: "scale(1.1)",
+                    },
+                  }}
+                  onClick={() => handleClick()}
+                >
+                  <FavoriteBorderRoundedIcon
+                    sx={{ fontSize: "30px", color: "#1a000d" }}
+                  ></FavoriteBorderRoundedIcon>
+                </Box>
+              </Box>
             </Box>
           </Box>
           <Box sx={{ zIndex: 3 }}>
@@ -204,7 +273,7 @@ export default function Home() {
               </Box>
             </motion.div>
           </Box>
-          <Box
+          {/* <Box
             sx={{
               zIndex: 4,
               height: "100vh",
@@ -224,8 +293,8 @@ export default function Home() {
                 height: "80px",
               }}
             ></Box>
-          </Box>
-          <Box
+          </Box> */}
+          {/* <Box
             sx={{
               zIndex: 5,
               height: "100vh",
@@ -244,11 +313,11 @@ export default function Home() {
                 height: "105px",
               }}
             ></Box>
-          </Box>
+          </Box> */}
         </motion.div>
       </ThemeProvider>
 
-      <Box
+      {/* <Box
         sx={{
           position: "absolute",
           top: "50%",
@@ -272,7 +341,7 @@ export default function Home() {
         <FavoriteBorderRoundedIcon
           sx={{ fontSize: "30px", color: "#1a000d" }}
         ></FavoriteBorderRoundedIcon>
-      </Box>
+      </Box> */}
     </Box>
   );
 }
