@@ -15,7 +15,7 @@ export default function VideoHome() {
       loop
       id="videoHomepage"
     >
-      <source src="public/video/video.mp4" type="video/mp4" />
+      <source src="/video/video.mp4" type="video/mp4" />
     </video>
   );
 }

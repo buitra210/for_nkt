@@ -98,7 +98,7 @@ export default function Memories() {
               }}
             >
               <motion.img
-                src="public/img/IMG_1158.jpg"
+                src="/img/IMG_1158.jpg"
                 alt="Memory"
                 style={{ maxWidth: "200px", height: "auto" }}
                 initial={{ opacity: 0 }}
@@ -106,7 +106,7 @@ export default function Memories() {
                 transition={{ duration: 1 }}
               />
               <motion.img
-                src="public/img/IMG_0548.PNG"
+                src="/img/IMG_0548.PNG"
                 alt="Memory"
                 style={{
                   maxWidth: "200px",
@@ -190,7 +190,7 @@ export default function Memories() {
               }}
             >
               <motion.img
-                src="public/img/IMG_9835.PNG"
+                src="/img/IMG_9835.PNG"
                 alt="Memory"
                 style={{
                   maxWidth: "200px",
@@ -202,7 +202,7 @@ export default function Memories() {
                 transition={{ duration: 1, delay: 1 }}
               />
               <motion.img
-                src="public/img/IMG_1159.jpg"
+                src="/img/IMG_1159.jpg"
                 alt="Memory"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
